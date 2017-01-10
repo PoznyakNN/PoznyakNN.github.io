@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="col-xs-12 col-sm-12 col-md-offset-3 col-md-5 col-lg-offset-3 col-lg-5">
+        <h2>"TODO" Application</h2>
+
+        <!-- Form Starts Here -->
+        <div class="form">
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="task">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="addTask()"><span
+                    class="glyphicon glyphicon-plus"></span> Add Task</button>
+          </span>
+            </div>
+        </div>
+        <hr/>
+        <!-- Form Ends Here -->
+
+        <!-- Task List Starts Here -->
+        <ul class="list-group" ui-sortable="todoSortable" ng-model="tasks" ng-show="tasks.length > 0">
+            <li class="list-group-item clearfix task" ng-repeat="todo in tasks" ng-class="{disabled: todo.done}">
+                <span style="cursor: pointer" class="lead">{{todo.task}}</span>
+                <div>
+            <span class="pull-right">
+              <button class="btn btn-primary btn-xs" ng-show="!todo.done"><span class="glyphicon glyphicon-ok"
+                                                                                ng-click="doneTask($index)"></span></button>
+              <button class="btn btn-primary btn-xs" ng-show="todo.done"><span class="glyphicon glyphicon-repeat"
+                                                                               ng-click="unDoneTask($index)"></span></button>
+              <button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"
+                                                          ng-click="deleteTask($index)"></span></button>
+            </span>
+                </div>
+            </li>
+        </ul>
+        <!-- Task List Ends Here -->
+
+    </div>
+</div>
